@@ -1,0 +1,94 @@
+$breakpoints: ('small': 767px,
+  'medium': 992px,
+  'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Prints a media query based on the value
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 72px;
+    background: #010C1F;
+    display: flex;
+    align-items: center;
+    .footer-inner { 
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10.4vw;
+        padding-right: 10.4vw;
+        div:nth-child(1) {
+            // width: 9.8vw;
+            height: 16px;
+            font-family: 'Assistant';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.625vw;
+            line-height: 16px;
+            text-transform: uppercase;
+            color: #EAF7F4;
+        }
+        div:nth-child(2) {
+            display: flex;
+            justify-content: space-between;
+            img:nth-child(1) {
+                margin-right: 50px;
+                margin-left: 50px;
+            }
+        }
+        div:nth-child(3) {
+            // width: 13vw;
+            height: 16px;
+            font-family: 'Assistant';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.625vw;
+            line-height: 16px;
+            text-transform: uppercase;
+            text-align: left;
+            color: #EAF7F4;
+        }
+    }
+
+    @include respond-to('small') {
+        .footer-inner {
+            padding-right: 5vw;
+            padding-left: 5vw;
+            div:nth-child(1) {
+                width: 35%;
+                text-align: left;
+                font-size: 1.5vw;
+            }
+            div:nth-child(2) {
+                width: 30%;
+                img:nth-child(1) {
+                    margin-right: 20px;
+                    margin-left: 20px;
+                }
+            }
+            div:nth-child(3) {
+                width: 35%;
+                text-align: right;
+                font-size: 1.5vw;
+            }
+        }
+    }
+}
+    

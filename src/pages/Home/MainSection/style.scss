@@ -1,0 +1,109 @@
+.main {
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url(../../../assets/images/main-section-bg.png);
+    height: 839px;
+    .center-group {
+        align-self: center;
+        div:nth-child(1) {
+            text-align: center;
+            height: 63px;
+            font-family: 'Aldrich';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 3vw;
+            line-height: 63px;
+            text-align: center;
+            color: #EAF7F4;
+        }
+        div:nth-child(2) {
+            height: 94px;
+            font-family: 'Aldrich';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 4.5vw;
+            line-height: 94px;
+            text-align: center;
+            background: linear-gradient(180deg, #47C3BE 46.21%, #47C3A5 68.46%, #1F5957 86.9%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        div:nth-child(3) {
+            height: 84px;
+            margin-top: 24px;
+            margin-bottom: 40px;
+            font-family: 'Assistant';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 1.5vw;
+            line-height: 42px;
+            text-align: center;
+            color: #EAF7F4;
+            span {
+                color: #47C3BE;
+            }
+        }
+        div:nth-child(4) {
+            button:nth-child(1) {
+                width: 13.7vw;
+                margin-right: 1.5vw;
+                padding: 16px 1.6vw;
+                gap: 10px;
+                height: 55px;
+                background: #010C1F;
+                border-radius: 10px;
+                a {
+                    height: 23px;
+                    /* Button */
+                    font-family: 'Aldrich';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 1.2vw;
+                    line-height: 23px;
+                    text-align: center;
+
+                    /* New white */
+                    color: #EAF7F4;
+
+                    /* Inside auto layout */
+                    flex: none;
+                    order: 0;
+                    flex-grow: 0;
+                }
+            }
+            button:nth-child(2) {
+                width: 13.7vw;
+                margin-left: 1.5vw;
+                padding: 16px 1.6vw;
+                gap: 10px;
+                height: 55px;
+                background: #EAF7F4;
+                border-radius: 10px;
+                a {
+                    height: 23px;
+                    /* Button */
+                    font-family: 'Aldrich';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 1.2vw;
+                    line-height: 23px;
+                    text-align: center;
+
+                    /* New black */
+
+                    color: #010C1F;
+
+
+                    /* Inside auto layout */
+
+                    flex: none;
+                    order: 0;
+                    flex-grow: 0;
+                }
+            }
+        }
+    }
+}

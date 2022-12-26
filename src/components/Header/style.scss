@@ -1,0 +1,132 @@
+
+$breakpoints: ('small': 767px,
+'medium': 992px,
+'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+// If the key exists in the map
+@if map-has-key($breakpoints, $breakpoint) {
+
+  // Prints a media query based on the value
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// If the key doesn't exist in the map
+@else {
+  @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+}
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3.14vw;
+    padding-right: 2vw;
+    height: 52px;
+    background: #010C1F;
+    a {
+        color: #EAF7F4;
+    }
+    .logo-title {
+        width: 15%;
+        a {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.6vw;
+            line-height: 15px;
+            color: #EAF7F4;
+            img {
+                width: 70px;
+            }
+        }
+    }
+
+    .navbar-wrapper {
+        // position: absolute;
+        // left: 35vw;
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        .navbar-item {
+            align-self: center;
+            height: 26px;
+            margin-right: 4vw;
+            text-transform: capitalize;
+            line-height: 26px;
+            text-align: center;
+            font-family: 'Assistant';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1vw;
+        }
+    }
+
+    .doc-btn {
+        width: 15%;
+        display: flex;
+        justify-content: flex-end;
+        div {
+            width: 10.7vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 8px 1.25vw;
+            gap: 10px;
+            /* Green */
+            background: #47C3BE;
+            border-radius: 20px;
+        }
+        a {
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            font-family: 'Aldrich';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1vw;
+            line-height: 20px;
+            text-align: center;
+            color: #EAF7F4;
+        }
+    }
+
+    @include respond-to('small') {
+        .logo-title {
+            width: 20%;
+            a {
+                font-size: 1.5vw;
+                img {
+                    width: 60px;
+                }
+            }
+        }
+        .navbar-wrapper {
+            width: 60%;
+            padding-left: 5%;
+            .navbar-item {
+                font-size: 2vw;
+            }
+        }
+        .doc-btn {
+            height: 10px;
+            width: 20%;
+            align-items: center;
+            div {
+                width: 15vw;
+                a {
+                    font-size: 2vw;
+                }
+            }
+        }
+    }
+}
+    

@@ -1,0 +1,233 @@
+$breakpoints: (
+  'small': 767px,
+  'medium': 992px,
+  'large': 1200px,
+  'extra-large': 1600px,
+  'super-extra-large': 2000px,
+  'ultra-extra-large': 2600px) !default;
+
+
+@mixin respond-to($breakpoint) {
+
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Prints a media query based on the value
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+.home-container {
+  position: relative;
+  overflow-x: hidden;
+  background: radial-gradient(18.26% 48.77% at 71.17% 37.8%, #EAF7F4 50.54%, rgba(234, 247, 244, 0) 100%);
+
+  @include respond-to('ultra-extra-large') {
+    img {
+      height: 25vw !important;
+    }
+    .section-item {
+      height: 15vw !important;
+    }
+    .cashback {
+      height: fit-content;
+      padding-bottom: 100px;
+    }
+  }
+
+  @include respond-to('super-extra-large') {
+    img {
+      height: 25vw !important;
+    }
+    .section-item {
+      height: 18vw !important;
+    }
+    .cashback {
+      height: fit-content;
+      padding-bottom: 100px;
+    }
+  }
+
+  @include respond-to('extra-large') {
+    img {
+      height: 30vw !important;
+    }
+    .section-item {
+      height: 20vw !important;
+    }
+    .cashback {
+      height: fit-content;
+      padding-bottom: 100px;
+    }
+  }
+
+  @include respond-to('large') {
+    img {
+      height: 17vw !important;
+    }
+    .section-item {
+      height: 20vw !important;
+    }
+    .cashback {
+      height: fit-content;
+      padding-bottom: 100px;
+    }
+  }
+
+  @include respond-to('medium') {
+    img {
+      height: 38vw !important;
+    }
+    .section-items {
+      button {
+        height: 35px !important;
+        padding: 0 24px;
+      }
+    }
+    .section-item {
+      height: 20vw !important;
+    }
+  }
+
+  @include respond-to('small') {
+
+    img {
+      height: 45vw !important;
+    }
+    .section-item {
+      height: 42vw !important;
+    }
+
+    section {
+      flex-direction: column;
+
+      .description {
+        text-align: center;
+        margin-bottom: 200px;
+
+        .section-title {
+          margin-top: 0;
+          width: 10vw;
+          font-size: 3vw;
+        }
+
+        .text-group-wrapper {
+          div {
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+          }
+
+          div:nth-child(1) {
+            width: 80vw;
+            text-align: center;
+            font-size: 4vw;
+          }
+
+          div:nth-child(2) {
+            width: 50vw;
+            font-size: 2vw;
+          }
+
+        }
+      }
+
+      .img-wrapper {
+        text-align: center;
+
+        img {
+          width: 50vw;
+        }
+      }
+    }
+
+    .main {
+      .center-group {
+        div:nth-child(1) {
+          font-size: 5vw;
+        }
+        div:nth-child(2) {
+          font-size: 7vw;
+        }
+        div:nth-child(3) {
+          font-size: 3vw;
+        }
+        div:nth-child(4) {
+          button {
+            width: 22vw;
+            a {
+              font-size: 2vw;
+            }
+          }
+        }
+      }
+    }
+
+    .growth,
+    .security,
+    .mint {
+      height: fit-content;
+      padding-bottom: 100px;
+    }
+
+    .security {
+      flex-direction: column-reverse;
+      .img-wrapper {
+        padding-bottom: 100px;
+      }
+    }
+    .cashback {
+      height: fit-content;
+      .section-title {
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10vw;
+        font-size: 3vw;
+      }
+      .section-description {
+        width: fit-content;
+        text-align: center;
+        font-size: 3.4vw;
+        margin-bottom: 50px;
+      }
+      .section-content {
+        width: 50vw;
+        font-size: 2vw;
+      }
+      .section-items {
+        flex-direction: column;
+        align-items: center;
+        div {
+          width: 50vw;
+          margin-bottom: 50px;
+          button {
+            a {
+              font-size: 2vw;
+            }
+          }
+        }
+      }
+      .left-ellipse {
+        bottom: 900px;
+        left: 200px;
+      }
+      .center-ellipse {
+        bottom: 450px;
+      }
+      .right-ellipse {
+        bottom: 0;
+        left: 200px;
+      }
+    }
+  }
+
+}
